@@ -27,7 +27,7 @@ Simple terminal-based HTTP/HTTPS availability monitor with an interactive interf
 - `git` (to clone the repository)
 - An internet connection (to monitor remote URLs)
 - A terminal with ANSI color support (any modern terminal on macOS/Linux)
-- Python dependencies: `requests` and `colorama` (listed in `requirements.txt`)
+- Python dependencies: `requests` and `colorama`
 
 ### macOS
 
@@ -50,14 +50,14 @@ global `pip install`. Use a virtual environment (recommended):
 cd WebMonitor
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install requests colorama
 ```
 
 Alternative (not recommended — installs system-wide and can conflict
 with Homebrew's own Python packages):
 
 ```bash
-pip3 install -r requirements.txt --break-system-packages
+pip3 install requests colorama --break-system-packages
 ```
 
 ### Linux
@@ -82,13 +82,13 @@ Then create the virtual environment and install dependencies:
 cd WebMonitor
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install requests colorama
 ```
 
 Alternative for distros without the externally-managed restriction:
 
 ```bash
-pip3 install -r requirements.txt
+pip3 install requests colorama
 ```
 
 ### Deactivating the virtual environment
