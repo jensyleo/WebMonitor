@@ -246,6 +246,27 @@ The monitor distinguishes between several error types:
 
 Press `CTRL+C` at any time to stop monitoring and return to the main menu.
 
+### Design History
+
+Notes on implementation decisions made while building the current
+message/retry logic, kept here for context:
+
+- Messaging was centralized into the `MESSAGES` dictionary with
+  unified text for every case (OK, 1xx, 3xx, 4xx, 5xx, DNS, SSL,
+  timeout, service unavailable) instead of scattering strings across
+  the code.
+- `normalize_url` resolves DNS first (`socket.gethostbyname`); if it
+  doesn't resolve, it returns `None` and the DNS error is reported in
+  the main flow. It then uses a quick `HEAD` probe to detect the
+  scheme, trying HTTPS first and falling back to HTTP.
+- The main check uses `GET` with a 2.0s timeout; retries apply to
+  timeouts, connection errors, and cases where no web service is
+  detected, with consistent retry messages.
+- **Reverted**: a 0.3s backoff between retries was tried and dropped.
+- **Reverted**: an earlier version normalized URLs without `requests`
+  and alternated the scheme on each attempt instead of resolving it
+  once — replaced by the current single-resolution approach.
+
 ## 📝 Notes
 
 - The monitor automatically follows HTTP redirects using `allow_redirects=True`
