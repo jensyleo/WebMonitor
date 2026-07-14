@@ -2,9 +2,6 @@
 
 ## Pending
 
-- Replace the `LICENSE` file with the verbatim official GPLv3 text
-  (currently a partial reconstruction) — easiest via GitHub's license
-  template picker when creating/editing the repo.
 - General code review pass for further debugging and cleanup.
 
 ## Future improvements

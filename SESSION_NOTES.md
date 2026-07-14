@@ -1,37 +1,32 @@
-### Sesión WebMonitor - Notas rápidas (v1.0.0)
+### WebMonitor session - quick notes (v1.0.0)
 
-- Proyecto: EH/WebMonitor/WebMonitor.py
+- Project: EH/WebMonitor/WebMonitor.py
 
-#### Cambios clave implementados
-- Mensajería centralizada en `MESSAGES` y textos unificados (OK, 1xx, 3xx, 4xx, 5xx, DNS, SSL, Timeout, Servicio no disponible).
-- Colores: "Servicio web no disponible" ahora usa `RGB_BLUE` (0,183,211).
-- Lógica HTTP:
-  - 2xx: OK (retorna True)
-  - 1xx: “Sitio arriba con respuesta informacional”
-  - 3xx: “Sitio arriba con redirección”
-  - 4xx: “Sitio arriba con respuesta del cliente”
-  - 5xx: “Sitio arriba con error del servidor”
-  - Fuera 100–599: status no estándar
-- normalizar_url:
-  - Ahora resuelve DNS previamente (`socket.gethostbyname`); si no resuelve → None (clasifica como DNS en el flujo principal).
-  - Usa HEAD (1.5s) para probes rápidas de esquema: primero HTTPS, si falla HTTP.
-- Chequeo principal: GET con timeout 2.0s.
-- Reintentos: se aplican para Timeout, errores de conexión y también cuando no se detecta servicio web; mensajes de reintento coherentes.
-- Filtrado de `urls.txt`: ignora líneas vacías/espacios y comentarios (`#`).
-- Import flexible eliminado (ya no hay archivo extra de mensajes; todo en un solo script).
+#### Key changes implemented
+- Centralized messaging in `MESSAGES` with unified text (OK, 1xx, 3xx, 4xx, 5xx, DNS, SSL, timeout, service unavailable).
+- Colors: "Service unavailable" now uses `RGB_BLUE` (0,183,211).
+- HTTP logic:
+  - 2xx: OK (returns True)
+  - 1xx: "Site up with informational response"
+  - 3xx: "Site up with redirect"
+  - 4xx: "Site up with client response"
+  - 5xx: "Site up with server error"
+  - Outside 100-599: non-standard status
+- `normalize_url`:
+  - Now resolves DNS beforehand (`socket.gethostbyname`); if it doesn't resolve → None (classified as DNS error in the main flow).
+  - Uses HEAD (1.5s) for quick scheme probing: HTTPS first, then HTTP on failure.
+- Main check: GET with a 2.0s timeout.
+- Retries: applied on timeout, connection errors, and when no web service is detected; consistent retry messages.
+- `urls.txt` filtering: ignores empty/whitespace lines and comments (`#`).
+- Removed the flexible message import (no more separate messages file; everything lives in a single script).
 
-#### Decisiones revertidas (para recordar)
-- Se descartó el backoff de 0.3s entre reintentos.
-- Se revirtió la versión que normalizaba sin requests y que alternaba esquema por intento.
+#### Reverted decisions (for reference)
+- Discarded the 0.3s backoff between retries.
+- Reverted the version that normalized without `requests` and alternated schemes per attempt.
 
-#### Cómo ejecutar
-- Dependencias: `pip install requests colorama`
-- Ejecutar: `python3 WebMonitor.py`
-- `urls.txt` debe estar en el mismo directorio que `WebMonitor.py`.
+#### How to run
+- Dependencies: `pip install requests colorama`
+- Run: `python3 WebMonitor.py`
+- `urls.txt` must be in the same directory as `WebMonitor.py`.
 
-#### Pendientes opcionales (para futuras iteraciones)
-- Considerar 1xx/3xx como éxito (True) si así se desea.
-- Parametrizar timeouts/reintentos vía archivo/env.
-- Logging a archivo/JSON y rotación.
-- Concurrencia para listas grandes de URLs.
-
+See [TODO.md](TODO.md) for pending work and future improvements.
