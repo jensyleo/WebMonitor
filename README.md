@@ -6,6 +6,8 @@ Simple terminal-based HTTP/HTTPS availability monitor with an interactive interf
 ![Python](https://img.shields.io/badge/python-3.8+-green.svg)
 ![License](https://img.shields.io/badge/license-GPLv3-orange.svg)
 
+![WebMonitor main menu](docs/screenshot.png)
+
 ## 📋 Features
 
 - ✅ **Continuous monitoring** of one or more URLs
