@@ -1,9 +1,5 @@
 # TODO
 
-## Pending
-
-- General code review pass for further debugging and cleanup.
-
 ## Future improvements
 
 - Treat 1xx/3xx as success (`True`) if that behavior is preferred.
