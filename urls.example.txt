@@ -1,0 +1,8 @@
+# Example urls.txt for WebMonitor
+# Copy this file to urls.txt and edit it with the URLs you want to monitor.
+# Empty lines and lines starting with '#' are ignored.
+
+https://example.com
+http://example.org
+example.net
+example.com:8080
