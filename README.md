@@ -2,7 +2,7 @@
 
 Simple terminal-based HTTP/HTTPS availability monitor with an interactive interface and colored messages.
 
-![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.2-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.8+-green.svg)
 ![License](https://img.shields.io/badge/license-GPLv3-orange.svg)
 
@@ -293,4 +293,4 @@ This project is licensed under the GNU General Public License v3.0 - see [LICENS
 
 ---
 
-**Version**: 1.0.1
+**Version**: 1.0.2
