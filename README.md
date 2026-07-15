@@ -279,6 +279,15 @@ message/retry logic, kept here for context:
 - The `urls.txt` file must be in the same directory as the script
 - The code optimizes the `response.history` check for better performance
 
+## 🗺️ Roadmap
+
+Future improvements under consideration:
+
+- Treat 1xx/3xx as success (`True`) if that behavior is preferred.
+- Make timeouts and retry count configurable (config file or env vars).
+- Add file/JSON logging with rotation.
+- Add concurrency for monitoring large URL lists.
+
 ## 🤝 Contributing
 
 Contributions are welcome. Please open an issue or pull request.
