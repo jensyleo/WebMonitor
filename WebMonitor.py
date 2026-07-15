@@ -59,7 +59,7 @@ Technical details:
 - Colors: green (OK 2xx), blue (1xx, 3xx, redirects and service unavailable), orange (4xx/5xx), red (errors and timeouts).
 """
 
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 
 import socket
 from urllib.parse import urlparse
@@ -448,7 +448,7 @@ def main():
         # Dynamically centered menu options
         print(f"\n{RGB_GREEN}{' ' * margin}╔{'═' * menu_width}╗{RESET_COLOR}")
         print(f"{RGB_GREEN}{' ' * margin}║{RGB_BLUE}{'WEB MONITOR':^52}{RGB_GREEN}║{RESET_COLOR}")
-        print(f"{RGB_GREEN}{' ' * margin}║{Fore.WHITE}{'Version 1.0.1':^52}{RGB_GREEN}║{RESET_COLOR}")
+        print(f"{RGB_GREEN}{' ' * margin}║{Fore.WHITE}{'Version 1.0.2':^52}{RGB_GREEN}║{RESET_COLOR}")
         print(f"{RGB_GREEN}{' ' * margin}╠{'═' * menu_width}╣{RESET_COLOR}")
         print(f"{RGB_GREEN}{' ' * margin}║ {RGB_YELLOW}[1]{RGB_BLUE} ⚡ {Fore.WHITE}Monitor a URL{' ' * 31}{RGB_GREEN}║{RESET_COLOR}")
         print(f"{RGB_GREEN}{' ' * margin}║ {RGB_YELLOW}[2]{RGB_BLUE} 📋 {Fore.WHITE}Monitor URLs from a file{' ' * 20}{RGB_GREEN}║{RESET_COLOR}")
